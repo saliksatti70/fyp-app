@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Load Files"
+        android:id="@+id/load_file_button"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onButtonClickLoadFiles" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Where am I"
+        android:id="@+id/where_button"
+        android:onClick="onButtonClickWhereButton" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TestingSettingsRadioGroup">
+
+        <RadioButton
+            android:layout_width="388dp"
+            android:layout_height="wrap_content"
+            android:text="Test Missing - Replace Test"
+            android:id="@+id/replaceTestRadioButton"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked" />
+
+        <RadioButton
+            android:layout_width="388dp"
+            android:layout_height="wrap_content"
+            android:text="Test MIssing - Ignore Training"
+            android:id="@+id/ignoreFromTrainingRadioButton"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked" />
+
+        <RadioButton
+            android:layout_width="388dp"
+            android:layout_height="wrap_content"
+            android:text="Training Missing - Replace Training"
+            android:id="@+id/replaceTrainingRadioButton"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked" />
+
+        <RadioButton
+            android:layout_width="388dp"
+            android:layout_height="wrap_content"
+            android:text="Training Missing - Ignore Test"
+            android:id="@+id/ignoreFromTestingRadioButton"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Both Missing - Replace Test and Training"
+            android:id="@+id/replaceBothRadioButton"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Both Missing - Replace Test, Ignore Test"
+            android:id="@+id/replaceTestIgnoreTestRadioButton"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Both Missing - Ignore Training, Replace Training"
+            android:id="@+id/ignoreTrainingReplaceTrainingRadioButton"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Both Missing - Ignore Training, Ignore Testing"
+            android:id="@+id/ignoreBothTrainingRadioButton"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="House: Home\nRoom: Name"
+        android:id="@+id/location_info"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onRadioButtonClicked" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/testTextView"
+        android:layout_weight="1.15" />
+
+</LinearLayout>
