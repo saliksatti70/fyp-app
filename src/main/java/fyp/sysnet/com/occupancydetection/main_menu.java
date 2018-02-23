@@ -90,6 +90,12 @@ public class main_menu extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onButtonClick_occupancy_view (View view)
+    {
+       Intent occupancy_view_intent =new Intent(main_menu.this,occupancy_view.class);
+       startActivity(occupancy_view_intent);
+    }
+
     public void onButtonClick_training_button(View v)
     {
         Intent intent = new Intent(getApplicationContext(),occupancy_training.class);
