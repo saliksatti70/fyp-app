@@ -126,7 +126,7 @@ public class occupancy_training extends Activity {
 
             Map <String,Integer> returnSamples = new HashMap<String,Integer>();
 
-            WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+            WifiManager wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
             try {
                 if (wifi != null) {
                     if (!wifi.isWifiEnabled()) {

@@ -1,5 +1,7 @@
 package fyp.sysnet.com.occupancydetection;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -9,19 +11,34 @@ import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
+import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -38,6 +55,7 @@ import java.util.Map;
 
 public class main_menu extends ActionBarActivity {
 
+
     private boolean sendToServer = true;
     private int SETTING_REQUEST_CODE = 8;
     private int total_rooms = 0;
@@ -45,7 +63,7 @@ public class main_menu extends ActionBarActivity {
     private int total_samples = 0;
     private int valueOfK = 0;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainmenu);
         IntentFilter intentFilter = new IntentFilter(Intent.ACTION_SCREEN_ON);
@@ -66,6 +84,7 @@ public class main_menu extends ActionBarActivity {
         //AccelerometerService as = new AccelerometerService();
         //AccelerometerService.start(getApplicationContext());
     }
+
 
 
     @Override
@@ -167,6 +186,7 @@ public class main_menu extends ActionBarActivity {
                     curr = room;
                     publishProgress();
                     sendToServer(userName, room);
+
                     oldRoom = room;
                 }
                 try {
@@ -364,11 +384,16 @@ public class main_menu extends ActionBarActivity {
         }
         public void sendToServer(String username, String room) {
             try {
-                //String sysnetURL = "http://sysnet.org.pk/occupecny_detection/addOccupancy.php?occupant="+username+"&room="+room;
-                String sysnetURL = "http://sysnet.org.pk/occupency_detection/addOccupancy.php?occupant=zaafar&room="+room;
+                    username = "hamza";
+                            room ="1";
+                    //String sysnetURL = "http://sysnet.org.pk/occupecny_detection/addOccupancy.php?occupant="+username+"&room="+room;
+                //String sysnetURL = "http://sysnet.org.pk/occupency_detection/addOccupancy.php?occupant=zaafar&room="+room;
+
+                String sysnetURL = "http://192.168.10.2/Android_connect/addOccupancy.php?username=" + username +"&room="+ room;
                 HttpClient httpclient = new DefaultHttpClient();
                 URI uri = new URI(sysnetURL);
                 HttpResponse response = httpclient.execute(new HttpPut(uri));
+
                 /*StatusLine statusLine = response.getStatusLine();
                 if (statusLine.getStatusCode() == HttpStatus.SC_OK) {
                     ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -387,11 +412,14 @@ public class main_menu extends ActionBarActivity {
             }
 
         }
+
+
+
         public Map<String, Integer> getCurrentTuple() {
 
             Map<String, Integer> returnSamples = new HashMap<String, Integer>();
 
-            WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+            WifiManager wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
             try {
                 if (wifi != null) {
                     if (!wifi.isWifiEnabled()) {
@@ -468,3 +496,4 @@ public class main_menu extends ActionBarActivity {
         }
     }
 }
+
