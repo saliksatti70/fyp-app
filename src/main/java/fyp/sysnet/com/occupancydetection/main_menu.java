@@ -188,9 +188,11 @@ public class main_menu extends ActionBarActivity {
                 ArrayList<Distance> allDistances = whereIsThisUsingMissingTestAndMissingTraining(true, true);
                 String room = getProbableRoom(allDistances);
                 System.out.println("CurrentRoom: " + room);
+                sendToServer(userName, room);
                 if(!room.equals(oldRoom)) {
                     curr = room;
                     publishProgress();
+
                     sendToServer(userName, room);
 
                     oldRoom = room;
@@ -390,29 +392,34 @@ public class main_menu extends ActionBarActivity {
         }
         public void sendToServer(String username, String room) {
             try {
+
                     username = "hamza";
                             room ="1";
                     //String sysnetURL = "http://sysnet.org.pk/occupecny_detection/addOccupancy.php?occupant="+username+"&room="+room;
                 //String sysnetURL = "http://sysnet.org.pk/occupency_detection/addOccupancy.php?occupant=zaafar&room="+room;
 
-                String sysnetURL = "http://192.168.10.2/Android_connect/addOccupancy.php?username=" + username +"&room="+ room;
+                String sysnetURL = "http://172.29.157.33:8081/androidConnect/public/store-data?user=" + username +"&room="+ room;
                 HttpClient httpclient = new DefaultHttpClient();
                 URI uri = new URI(sysnetURL);
                 HttpResponse response = httpclient.execute(new HttpPut(uri));
 
-                /*StatusLine statusLine = response.getStatusLine();
-                if (statusLine.getStatusCode() == HttpStatus.SC_OK) {
-                    ByteArrayOutputStream out = new ByteArrayOutputStream();
-                    response.getEntity().writeTo(out);
-                    String responseString = out.toString();
-                    System.out.println("ASD: "+responseString);
-                    out.close();
-                    //..more logic
-                } else {
-                    //Closes the connection.
-                    response.getEntity().getContent().close();
-                    throw new IOException(statusLine.getReasonPhrase());
-                }*/
+//                Log.d("abc","works");
+//
+//                StatusLine statusLine = response.getStatusLine();
+//                if (statusLine.getStatusCode() == HttpStatus.SC_OK) {
+//                    ByteArrayOutputStream out = new ByteArrayOutputStream();
+//                    response.getEntity().writeTo(out);
+//                    String responseString = out.toString();
+//                    System.out.println("ASD: "+responseString);
+//                    out.close();
+//                    System.out.println("OK");
+//                    //..more logic
+//                } else {
+////                    Closes the connection.
+//                    System.out.println("ERROR");
+//                    response.getEntity().getContent().close();
+//                    throw new IOException(statusLine.getReasonPhrase());
+//                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
