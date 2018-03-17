@@ -32,9 +32,9 @@
         <activity android:name=".occupancy_view" />
         <activity android:name=".adminlogin" />
         <activity android:name=".userlogin" />
-        <activity android:name=".Admin_or_User">
-
-        </activity>
+        <activity android:name=".Admin_or_User" />
+        <activity android:name=".AdminMenu" />
+        <activity android:name=".UserRegisteration"></activity>
     </application>
 
 </manifest>

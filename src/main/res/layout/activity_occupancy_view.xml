@@ -17,10 +17,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:textSize="25dp"
+        android:layout_marginTop="10dp"
+        android:textSize="16dp"
         android:textAllCaps="true"
-        android:text="Admin login"
+        android:text="occupants location"
         android:textColor="#000000"
         android:paddingLeft="100dp"
 
@@ -28,34 +28,65 @@
 
         ></TextView>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:inputType="textEmailAddress"
-        android:textSize="16dp"
-        android:hint="username"
-        android:background="@color/switch_thumb_normal_material_light"
-
-
-        ></TextView>
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:inputType="textPassword"
-            android:textSize="16dp"
-            android:hint="password"
-            android:background="@color/switch_thumb_normal_material_light"
-            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            android:paddingBottom="25dp"
+            >
 
-            ></TextView>
+
+            <TextView
+                android:id="@+id/NameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="16dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/switch_thumb_normal_material_light"
+
+
+                ></TextView>
+
+            <TextView
+                android:id="@+id/LocationView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="8dp"
+                android:text="Location room"
+                android:textSize="16dp"
+                android:background="@color/switch_thumb_normal_material_light"
+                android:layout_marginBottom="8dp"
+
+                ></TextView>
+
+            <TextView
+                android:id="@+id/TimeView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="8dp"
+                android:text="time stamp"
+                android:textSize="16dp"
+                android:background="@color/switch_thumb_normal_material_light"
+                android:layout_marginBottom="8dp"
+
+                ></TextView>/
+
+
+
+
+
+        </LinearLayout>
+
+
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="login"
+            android:text="refresh"
 
             />
 
